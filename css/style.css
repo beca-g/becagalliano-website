@@ -43,7 +43,8 @@
 body {
   background: var(--clr-light);
   color: var(--clr-dark);
-  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
   line-height: 1.6;
@@ -111,8 +112,7 @@ h3 { font-size: var(--fs-h3) }
   font-size: var(--fs-body);
 }
 
-.section__subtitle--intro,
-.section__subtitle--about {
+.section__subtitle--intro {
   padding: .2em 1em;
   font-family: var(--ff-secondary);
   margin-bottom: 4em;
@@ -145,7 +145,7 @@ h3 { font-size: var(--fs-h3) }
 
   .intro__img {
     grid-area: img;
-    min-width: 350px;
+    min-width: 450px;
     position: relative;
     z-index: 2;
   }
@@ -157,8 +157,8 @@ h3 { font-size: var(--fs-h3) }
     grid-row: 2;
     text-align: right;
     position: relative;
-    /* left: -6em; */
-    width: calc(105% + -6em);
+    left: -2em;
+    width: calc(100% + -3em);
     padding-right: 3em;
   }
 
@@ -172,12 +172,13 @@ h3 { font-size: var(--fs-h3) }
     width: calc(100% + 9.5em);
     background: var(--clr-pink-accent);
     padding: 1.1em 1em;
-    margin-bottom: 6em;
+    margin-bottom: 9em;
     z-index: -100;
   }
 }
 
-/*  My services section  */
+
+/*  What I do */
 
 .my-services {
   background-color: var(--clr-dark);
@@ -186,7 +187,8 @@ h3 { font-size: var(--fs-h3) }
   background-blend-mode: overlay;
   color: var(--clr-light);
   text-align: center;
-  padding: 2em;
+  padding: 1.5em;
+  margin: 2em;
 }
 
 .section__title--services {
@@ -206,7 +208,7 @@ h3 { font-size: var(--fs-h3) }
 }
 
 .services {
-  margin: 4em;
+  margin: 2em;
 }
 
 .service {
@@ -226,38 +228,165 @@ h3 { font-size: var(--fs-h3) }
     margin-left: 2em;
   }
 }
+
+/* About me */
  
 .about-me {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 2em auto;
 }
 
 .about-me__img {
   box-shadow: var(--bs);
 }
 
+.about-me__makers {
+  color:var(--clr-dark)
+}
+
+.section__subtitle--about {
+  padding: .2em 1em;
+  font-family: var(--ff-secondary);
+  margin-bottom: 4em;
+}
+
+.section__subtitle--about {
+  background: var(--clr-aqua-accent);
+  font-family: var(--ff-secondary);
+  padding: .25em 4.2em;
+}
+
 @media (min-width: 600px) {
   .about-me {
       display: grid;
-      grid-template-columns: 1fr 500px;
+      margin-top: 2em;
+      grid-template-columns: 1fr 200px;
       grid-template-areas: 
-        "title img"
-        "subtitle img"
-        "text img"; 
-      grid-column-gap: 2em;
+          "title img"
+          "subtitle img"
+          "text img";
+      grid-column-gap: 4em;
   }
   
   .section__title--about {
-    grid-area: title;
+      grid-area: title;
   }
-
+  
   .section__subtitle--about {
-    grid-column: 1 / -1;
-    grid-row: 2em;
-}
+      grid-column: 1 / -1;
+      grid-row: 2;
+      position: relative;
+      left: -4em;
+      width: calc(105% + 6em);
+      padding-right: calc(200px + 9em);
+      margin: auto;
+      bottom: 1em
+  }
   
   .about-me__img {
     grid-area: img;
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-me__body__p {
+    margin: 0 auto;
+    font-size: .85em;
   }
 }
 
+/*  Portfolio  */
+
+.my-work {
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  text-align: center;  
+  margin: 2em;  
+}
+
+.my-work h2 {
+  padding-top: 30px;
+}
+
+.section__subtitle--work {
+  color: var(--clr-pink-accent);
+  font-weight: var(--fw-bold);
+  margin-bottom: 2em;
+}
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.portfolio__item {
+  background: var(--clr-aqua-accent);
+  overflow: hidden;
+}
+
+.portfolio__img {
+  transition: 
+      transform 750ms cubic-bezier(.5, 0, .5, 1),
+      opacity 250ms linear;
+}
+
+.portfolio__item:focus {
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img {
+  transform: scale(1.2);
+  opacity: .5;
+}
+
+/* Footer */
+
+footer {
+  background: var(--clr-dark);
+  color: white;
+  text-align: center;
+  padding: 1.5em 0;
+  margin: 2em;
+  font-size: var(--fs-h3);
+}
+
+.footer a { 
+    color: white;
+    text-decoration: none;
+}
+
+a {
+  color: white;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    /* opacity: .7; */
+    color: var(--clr-pink-accent)
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
