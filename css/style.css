@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {
@@ -316,15 +320,18 @@ h3 { font-size: var(--fs-h3) }
 
 .portfolio {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
 }
 
 .portfolio__item {
-  background: var(--clr-aqua-accent);
+  background: var(--clr-orange-accent);
   overflow: hidden;
 }
 
 .portfolio__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   transition: 
       transform 750ms cubic-bezier(.5, 0, .5, 1),
       opacity 250ms linear;
